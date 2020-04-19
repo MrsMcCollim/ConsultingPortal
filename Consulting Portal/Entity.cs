@@ -6,30 +6,25 @@ using System.Text;
 namespace Consulting_Portal
 {
     #region Enums
-    /// <summary>
-    /// Provides values for Entity Type array
-    /// </summary>
-    enum EntityType
-    {
-        PublicSchoolDistrict,
-        Township,
-        IVConsultant,
-        IVUser,
+        /// <summary>
+        /// Provides values for Entity Type array
+        /// </summary>
+        enum EntityType
+        {
+            PublicSchoolDistrict,
+            Township,
+            IVConsultant,
+            IVUser,
+            IVAdministrator,
         }
     #endregion
 
     #region Entity
-    /// <summary>
-    /// Entity = IC, IM, District User, District
-    /// </summary>
-    class Entity
-    {
-        /// <summary>
-        /// Last Entity Identifier = Last Entity Indentifier to be assigned to an Entity upon the creation of a new Entity Record
-        /// </summary>
-        private static int LastEntityIdentifier = 0;
-        private static object entities;
-
+       /// <summary>
+       /// Entity = IC, IM, District User, District
+       /// </summary>
+       class Entity
+       {
         /// <summary>
         /// Unique Identifier for an Entity Record, Autopopulated, Sequential Assignment
         /// </summary>
@@ -69,43 +64,41 @@ namespace Consulting_Portal
         /// Account Balance = Entity's Account Balance in USD
         /// </summary>
         public decimal AccountBalance { get; private set; }
-        #endregion
+    #endregion
 
     #region Constructors
 
-    /// <summary>
-    /// Entity Identifier is assigned upon creation of new Entity Record, Pre-increment assignment
-    /// Creation Date = Time and date stamp of Entity's creation
-    /// </summary>
-    public Entity()
-    {
-       EntityIdentifier = ++LastEntityIdentifier;
-       CreationDate = DateTime.Now;
-    }
+        /// <summary>
+        /// Entity Identifier is assigned upon creation of new Entity Record, Pre-increment assignment
+        /// Creation Date = Time/date stamp of Entity's creation
+        /// </summary>
+        public Entity()
+        {
+            CreationDate = DateTime.Now;
+        }
     #endregion
 
     #region Methods
 
-    /// <summary>
-    /// Purchase = Addition to Account Balance
-    /// </summary>
-    /// <param name="amount">Amount of Entity Purchase</param>
-    public decimal Purchase(decimal amount)
-    {
-       AccountBalance += amount;
-       return AccountBalance;
-    }
-        
-    /// <summary>
-    /// Use = Reduction of Account Balance
-    /// </summary>
-    /// <param name="amount">Amount of Entity Use</param>
-    public decimal Use(decimal amount)
-    {
-       AccountBalance -= amount;
-       return AccountBalance;
-    }
-    #endregion
+        /// <summary>
+        /// Purchase = Addition to Account Balance
+        /// </summary>
+        /// <param name="amount">Amount of Entity Purchase</param>
+        public decimal Purchase(decimal amount)
+        {
+            AccountBalance += amount;
+            return AccountBalance;
+        }
 
-    }
+        /// <summary>
+        /// Use = Reduction of Account Balance
+        /// </summary>
+        /// <param name="amount">Amount of Entity Use</param>
+        public decimal Use(decimal amount)
+        {
+            AccountBalance -= amount;
+            return AccountBalance;
+        }
+    #endregion
+        }
 }
